@@ -1,0 +1,14 @@
+{
+  "preamble": {
+    "title": "rcerrud/ea_aikenexamples",
+    "description": "Aiken contracts for project 'rcerrud/ea_aikenexamples'",
+    "version": "0.0.0",
+    "plutusVersion": "v2",
+    "compiler": {
+      "name": "Aiken",
+      "version": "v1.0.20-alpha+unknown"
+    },
+    "license": "Apache-2.0"
+  },
+  "validators": []
+}

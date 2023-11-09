@@ -1,0 +1,14 @@
+name = "rcerrud/ea_aikenexamples"
+version = "0.0.1"
+license = "Apache-2.0"
+description = "Aiken contracts for Emurgo Academy'"
+
+[repository]
+user = "rcerrud"
+project = "ea_aikenexamples"
+platform = "github"
+
+[[dependencies]]
+name = "aiken-lang/stdlib"
+version = "1.7.0"
+source = "github"
