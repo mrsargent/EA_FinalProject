@@ -1,11 +1,11 @@
-name = "rcerrud/ea_aikenexamples"
+name = "rcerrud/justvalidators"
 version = "0.0.1"
 license = "Apache-2.0"
-description = "Aiken contracts for Emurgo Academy'"
+description = "Aiken contracts for project 'rcerrud/justvalidators'"
 
 [repository]
 user = "rcerrud"
-project = "ea_aikenexamples"
+project = "justvalidators"
 platform = "github"
 
 [[dependencies]]
