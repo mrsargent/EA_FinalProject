@@ -15,3 +15,21 @@ validator {
     redeemer == datum
   }
 }
+
+type OurWonderfullDatum {
+  owd: Int,
+}
+
+type OurWonderfullRedeemer {
+  owr: Int,
+}
+
+validator {
+  fn ourWonderfullValidator(
+    datum: OurWonderfullDatum,
+    redeemer: OurWonderfullRedeemer,
+    _context: Data,
+  ) -> Bool {
+    datum.owd == redeemer.owr
+  }
+}

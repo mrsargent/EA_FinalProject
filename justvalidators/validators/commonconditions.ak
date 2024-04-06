@@ -16,12 +16,20 @@ type VerificationKeyHash =
 type POSIXTime =
   Int
 
+type ActionRedeemer {
+  Owner
+  Time
+}
+
 validator {
-  fn conditionator(datum: ConditionsDatum, redeemer: Int, ctx: ScriptContext) {
+  fn conditionator(
+    datum: ConditionsDatum,
+    redeemer: ActionRedeemer,
+    ctx: ScriptContext,
+  ) -> Bool {
     when redeemer is {
-      1 -> must_be_signed_by(ctx.transaction, datum.owner)
-      2 -> must_start_after(ctx.transaction.validity_range, datum.lock_until)
-      _ -> False
+      Owner -> must_be_signed_by(ctx.transaction, datum.owner)
+      Time -> must_start_after(ctx.transaction.validity_range, datum.lock_until)
     }
   }
 }
