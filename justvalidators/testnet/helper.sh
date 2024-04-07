@@ -11,3 +11,11 @@ cardano-cli address build --payment-script-file ./compiled/ak_typeddatum22.uplc 
 # aiken blueprint convert -m redeemer11 -v redeemer11 .
 
 #### echo "{\"constructor\" : 0, \"fiels\": [{\"}]}
+
+## // compile validator into .uplc file
+#   aiken blueprint convert -m typed_validators -v ourWonderfullValidator . > ./testnet/compiled/ourWonderfullValidator.uplc
+# where typed_validators is the actual .ak file and ourWonderfullValidator is the validator inside that file
+
+
+#   aiken blueprint address -m typed_validators -v ourWonderfullValidator . > ./testnet/compiled/ourWonderfullValidator.addr
+# where typed_validators is the actual .ak file and ourWonderfullValidator is the validator inside that file
