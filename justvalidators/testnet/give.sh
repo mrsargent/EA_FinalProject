@@ -1,23 +1,13 @@
-utxoin="ff2ee97c2c046c2422b7e447352d1982dbd3a346ba61f1318a65534c9bd35aad#4"
-address=$(cat ak_typeddatum22.addr) 
-output="500000000"
-PREVIEW="--testnet-magic 2"
-
+utxoin="fbd6423cd06e5aca9d9b1eca1da07e2b276c1b8d388ccf4ed0152ecea7aa8f86#1"
+address=$(cat ak_handsonNo1r.addr) 
+output="110000000"
 
 cardano-cli transaction build \
   --babbage-era \
   $PREVIEW \
   --tx-in $utxoin \
   --tx-out $address+$output \
-  --tx-out-datum-hash-file ./values/value22.json \
-  --tx-out $address+$output \
-  --tx-out-datum-hash-value 22 \
-  --tx-out $address+$output \
-  --tx-out-datum-hash-file ./values/customValue22.json \
-  --tx-out $Adr11+$output \
-  --tx-out $Adr11+$output \
-  --tx-out $Adr11+$output \
-  --tx-out $Adr11+$output \
+  --tx-out-datum-hash-file ./values/customValue23.json \
   --change-address $Adr11 \
   --out-file give.unsigned
 
