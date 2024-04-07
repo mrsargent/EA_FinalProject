@@ -131,6 +131,57 @@
       "hash": "bedc355d35096f19edd70a740e636f3ac906eee602792e4779717b3d"
     },
     {
+      "title": "typed_validators.handsOn1",
+      "datum": {
+        "title": "datum",
+        "schema": {
+          "$ref": "#/definitions/typed_validators~1MyType"
+        }
+      },
+      "redeemer": {
+        "title": "redeemer",
+        "schema": {
+          "$ref": "#/definitions/typed_validators~1MyType"
+        }
+      },
+      "compiledCode": "590186010000323232323232232323232322322533300a32323232533300e300b300f3754004264a66601e601860206ea80104c94ccc040cdc38010008a5113370e002900b1bad3013301137540080046eb4c048c040dd50010008992999807180618079baa002132533300f300d30103754008264a666020004200226660200029412899b8848000c040dd5180998089baa00400233710900018079baa301230103754004002264a66601c6014601e6ea800854ccc038c028c03cdd50018a510010011533300d300a300e3754004266e1cdd6980898079baa002480585281806801180680099bb000900314984d958c00c004c0040148c94ccc01cc00c00454ccc028c024dd50010a4c2c2a66600e600800226464a666018601c0042930b1bad300c001300937540042a66600e600a00226464a666018601c0042930b19299980618058008a999804980318050008a51153330093005300a00114a02c2c6ea8c030004c024dd50010b18039baa001370e90001b8748008dc3a4008ae6955ceaab9e5573eae855d101",
+      "hash": "4556ca6f16cdad000bd59d34b986f1c797ae3a5701c2d46026938ba4"
+    },
+    {
+      "title": "typed_validators.handsOn1_2",
+      "datum": {
+        "title": "datum",
+        "schema": {
+          "$ref": "#/definitions/Data"
+        }
+      },
+      "redeemer": {
+        "title": "redeemer",
+        "schema": {
+          "$ref": "#/definitions/Data"
+        }
+      },
+      "compiledCode": "585f010000323232323232222533300453330043375e00600429444c8cdc39bad300930073754006900b299980219b8748000c014dd500109919299980498058010a4c2c6eb4c024004c018dd50010b0a4c26cacae6955ceaab9e5573eae855d11",
+      "hash": "58b920bef69f8b6af920fa743aa322a1416f0a067395b61f3191806b"
+    },
+    {
+      "title": "typed_validators.handsOn1_3",
+      "datum": {
+        "title": "datum",
+        "schema": {
+          "$ref": "#/definitions/Data"
+        }
+      },
+      "redeemer": {
+        "title": "redeemer",
+        "schema": {
+          "$ref": "#/definitions/Data"
+        }
+      },
+      "compiledCode": "59017e010000323232323232222533300432323232323232323232533300e3008300f3754004264a66601e601260206ea80104cdc38009bad3013301137540080046eb4c048c040dd50010008992999807180518079baa002132533300f300b30103754008264a666020004200226660200029412899b8848000c040dd5180998089baa00400233710900018079baa301230103754004002264a66601c6012601e6ea800854ccc038c024c03cdd50018a5100100114a0601a004601a00266ec0024020c00801cc00401c8c94ccc024c00c0044c8c94ccc038c04000852616375a601c00260166ea800854ccc024c0140044c8c94ccc038c0400085261632533300e300d0011533300b3007300c00114a22a666016600a601800229405858dd5180700098059baa00215333009300400113232533300e3010002149858c94ccc02cc014c03000454ccc038c03400452616163754601c00260166ea800858c024dd50009b8748000dc3a40086e1d200214984d9595cd2ab9d5573caae7d5d0aba201",
+      "hash": "85671e7996b10d1e76dfc05fdff111e9174679121a48a998b3df75ea"
+    },
+    {
       "title": "typed_validators.ourWonderfullValidator",
       "datum": {
         "title": "datum",
@@ -183,6 +234,23 @@
     }
   ],
   "definitions": {
+    "Bool": {
+      "title": "Bool",
+      "anyOf": [
+        {
+          "title": "False",
+          "dataType": "constructor",
+          "index": 0,
+          "fields": []
+        },
+        {
+          "title": "True",
+          "dataType": "constructor",
+          "index": 1,
+          "fields": []
+        }
+      ]
+    },
     "ByteArray": {
       "dataType": "bytes"
     },
@@ -229,6 +297,39 @@
             {
               "title": "price",
               "$ref": "#/definitions/Int"
+            }
+          ]
+        }
+      ]
+    },
+    "typed_validators/MyType": {
+      "title": "MyType",
+      "anyOf": [
+        {
+          "title": "Unit",
+          "dataType": "constructor",
+          "index": 0,
+          "fields": []
+        },
+        {
+          "title": "Number",
+          "dataType": "constructor",
+          "index": 1,
+          "fields": [
+            {
+              "title": "x",
+              "$ref": "#/definitions/Int"
+            }
+          ]
+        },
+        {
+          "title": "YesOrNo",
+          "dataType": "constructor",
+          "index": 2,
+          "fields": [
+            {
+              "title": "yn",
+              "$ref": "#/definitions/Bool"
             }
           ]
         }

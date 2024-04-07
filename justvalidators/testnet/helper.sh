@@ -19,3 +19,6 @@ cardano-cli address build --payment-script-file ./compiled/ak_typeddatum22.uplc 
 
 #   aiken blueprint address -m typed_validators -v ourWonderfullValidator . > ./testnet/compiled/ourWonderfullValidator.addr
 # where typed_validators is the actual .ak file and ourWonderfullValidator is the validator inside that file
+
+#to view all available validators
+# aiken blueprint convert -m .  
