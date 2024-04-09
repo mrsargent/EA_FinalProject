@@ -1,4 +1,4 @@
-utxoin="ff2ee97c2c046c2422b7e447352d1982dbd3a346ba61f1318a65534c9bd35aad#4"
+utxoin="2d696a4c8dc99b8e711f25853d6221065e7e653db7c0e1263bb990cd1933f427#0"
 address=$(cat ak_typeddatum22.addr) 
 output="500000000"
 PREVIEW="--testnet-magic 2"
