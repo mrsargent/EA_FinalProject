@@ -1,0 +1,14 @@
+name = "sargent/finalproject"
+version = "0.0.0"
+license = "Apache-2.0"
+description = "Aiken final project for Ryan Sargent"
+
+[repository]
+user = "sargent"
+project = "finalproject"
+platform = "github"
+
+[[dependencies]]
+name = "aiken-lang/stdlib"
+version = "1.8.0"
+source = "github"
