@@ -1,0 +1,4 @@
+1. Company A mints 10000 "Loyaly Coin Inu" (LCI).
+2. When user buys something from Company A they get LCI
+3. For every 10A they get 1 LCI 
+4. Once a user has accumulated 10 LCI they can claim a Loyalty NFT.
