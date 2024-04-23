@@ -7,8 +7,8 @@ cardano-cli address build --payment-script-file ./compiled/ak_typeddatum22.uplc 
 #### Create protocol parameters file
 ## cardano-cli query protocol-parameters --testnet-magic 2 --out-file protocol.params
 
-#### Serializing contracts from blueprint
-# aiken blueprint convert -m redeemer11 -v redeemer11 .
+#### Serializing contracts from blueprint for cardano CLI
+# aiken blueprint convert -m redeemer11 -v redeemer11 . > redeemer.uplc
 
 #### echo "{\"constructor\" : 0, \"fiels\": [{\"}]}
 

@@ -63,16 +63,25 @@
       "hash": "691ee8f3cbf2f620aa204f15be1452c621ff57836fca14a0199253ee"
     },
     {
+<<<<<<< HEAD
       "title": "handson1validator.handsOn1",
       "datum": {
         "title": "datum",
         "schema": {
           "$ref": "#/definitions/handson1validator~1MyType"
+=======
+      "title": "commonconditions.ourWonderfullValidator",
+      "datum": {
+        "title": "datum",
+        "schema": {
+          "$ref": "#/definitions/commonconditions~1OurWonderfullDatum"
+>>>>>>> e2b3f5022b600540d37b444daca81589d9571567
         }
       },
       "redeemer": {
         "title": "redeemer",
         "schema": {
+<<<<<<< HEAD
           "$ref": "#/definitions/handson1validator~1MyType"
         }
       },
@@ -85,11 +94,26 @@
         "title": "datum",
         "schema": {
           "$ref": "#/definitions/Data"
+=======
+          "$ref": "#/definitions/commonconditions~1OurWonderfullRedeemer"
+        }
+      },
+      "compiledCode": "588601000032323232323223223225333006323370e6eb4c004c024dd50031bad3001300937540084601600229309b2b299980219b8748000c014dd500089919299980498058010a4c2c6eb4c024004c018dd50008b299980119b8748000c00cdd500089919299980398048010a4c2c6eb4c01c004c010dd50008b2b9a5573aaae7955cfaba15745",
+      "hash": "4b2e2a953974e6ee9c8f7782407a585711226cc4a4d0b34eb7884207"
+    },
+    {
+      "title": "handson_1.handsNo1r",
+      "datum": {
+        "title": "datum",
+        "schema": {
+          "$ref": "#/definitions/handson_1~1MyType"
+>>>>>>> e2b3f5022b600540d37b444daca81589d9571567
         }
       },
       "redeemer": {
         "title": "redeemer",
         "schema": {
+<<<<<<< HEAD
           "$ref": "#/definitions/Data"
         }
       },
@@ -98,6 +122,16 @@
     },
     {
       "title": "handson1validator.handsOn1_3",
+=======
+          "$ref": "#/definitions/handson_1~1MyType"
+        }
+      },
+      "compiledCode": "59016c010000323232323232232323232322322533300a32323232533300e300b300f3754004264a66601e601860206ea80104c94ccc040cdc38010008a5113370e002900b1bad3013301137540080046eb4c048c040dd50010008992999807180618079baa002132533300f300d30103754008264a666020004200226660200029412899b8848000c040dd5180998089baa00400233710900018079baa301230103754004002264a66601c6014601e6ea800854ccc038c028c03cdd50018a5100100114a0601a004601a00266ec002400c5261365630030013001005232533300730030011533300a300937540042930b0a999803980200089919299980618070010a4c2c6eb4c030004c024dd50010a999803980280089919299980618070010a4c2c64a66601860160022a666012600c6014002294454ccc024c014c0280045280b0b1baa300c001300937540042c600e6ea8004dc3a40006e1d2002370e90022b9a5573aaae7955cfaba157441",
+      "hash": "58958880d8ddfaa56175c866f7df19700e06fb319b0e68212fa04122"
+    },
+    {
+      "title": "handson_1.handsonNo1",
+>>>>>>> e2b3f5022b600540d37b444daca81589d9571567
       "datum": {
         "title": "datum",
         "schema": {
@@ -110,8 +144,13 @@
           "$ref": "#/definitions/Data"
         }
       },
+<<<<<<< HEAD
       "compiledCode": "59017e010000323232323232222533300432323232323232323232533300e3008300f3754004264a66601e601260206ea80104cdc38009bad3013301137540080046eb4c048c040dd50010008992999807180518079baa002132533300f300b30103754008264a666020004200226660200029412899b8848000c040dd5180998089baa00400233710900018079baa301230103754004002264a66601c6012601e6ea800854ccc038c024c03cdd50018a5100100114a0601a004601a00266ec0024020c00801cc00401c8c94ccc024c00c0044c8c94ccc038c04000852616375a601c00260166ea800854ccc024c0140044c8c94ccc038c0400085261632533300e300d0011533300b3007300c00114a22a666016600a601800229405858dd5180700098059baa00215333009300400113232533300e3010002149858c94ccc02cc014c03000454ccc038c03400452616163754601c00260166ea800858c024dd50009b8748000dc3a40086e1d200214984d9595cd2ab9d5573caae7d5d0aba201",
       "hash": "85671e7996b10d1e76dfc05fdff111e9174679121a48a998b3df75ea"
+=======
+      "compiledCode": "585f010000323232323232222533300453330043375e00600429444c8cdc39bad300930073754006900b299980219b8748000c014dd500109919299980498058010a4c2c6eb4c024004c018dd50010b0a4c26cacae6955ceaab9e5573eae855d11",
+      "hash": "58b920bef69f8b6af920fa743aa322a1416f0a067395b61f3191806b"
+>>>>>>> e2b3f5022b600540d37b444daca81589d9571567
     },
     {
       "title": "toosimple_validators.datum22",
@@ -287,7 +326,11 @@
           "index": 0,
           "fields": [
             {
+<<<<<<< HEAD
               "title": "lock_until",
+=======
+              "title": "deadline",
+>>>>>>> e2b3f5022b600540d37b444daca81589d9571567
               "$ref": "#/definitions/Int"
             },
             {
@@ -302,7 +345,43 @@
         }
       ]
     },
+<<<<<<< HEAD
     "handson1validator/MyType": {
+=======
+    "commonconditions/OurWonderfullDatum": {
+      "title": "OurWonderfullDatum",
+      "anyOf": [
+        {
+          "title": "OurWonderfullDatum",
+          "dataType": "constructor",
+          "index": 0,
+          "fields": [
+            {
+              "title": "owd",
+              "$ref": "#/definitions/Int"
+            }
+          ]
+        }
+      ]
+    },
+    "commonconditions/OurWonderfullRedeemer": {
+      "title": "OurWonderfullRedeemer",
+      "anyOf": [
+        {
+          "title": "OurWonderfullRedeemer",
+          "dataType": "constructor",
+          "index": 0,
+          "fields": [
+            {
+              "title": "owr",
+              "$ref": "#/definitions/Int"
+            }
+          ]
+        }
+      ]
+    },
+    "handson_1/MyType": {
+>>>>>>> e2b3f5022b600540d37b444daca81589d9571567
       "title": "MyType",
       "anyOf": [
         {
@@ -323,7 +402,11 @@
           ]
         },
         {
+<<<<<<< HEAD
           "title": "YesOrNo",
+=======
+          "title": "YesorNo",
+>>>>>>> e2b3f5022b600540d37b444daca81589d9571567
           "dataType": "constructor",
           "index": 2,
           "fields": [
