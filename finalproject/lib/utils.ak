@@ -1,6 +1,6 @@
 use aiken/list
 use aiken/transaction.{ScriptContext, Input, Output, Transaction, Spend,find_script_outputs,ValidityRange}
-use aiken/transaction/value.{Value, zero, merge}
+use aiken/transaction/value.{Value, zero, merge,PolicyId,AssetName,quantity_of,flatten}
 use aiken/transaction/credential.{from_verification_key}
 use types.{VerificationKeyHash,POSIXtime}
 use aiken/bytearray
@@ -27,6 +27,21 @@ pub fn inputs_value(inputs: List<Input>) -> Value {
   let inputs_ = list.map(inputs, fn(n) {n.output.value})
   list.foldr(inputs_, zero(), fn(in1,in2) {merge(in1, in2)})
 }
+
+
+//filter inputs based on policy id and return the qty of tokens
+pub fn inputs_value_filter(inputs: List<Input>, pid: PolicyId,an: AssetName) -> Int {
+   //filter the inputs by policy id
+  let filtered_inputs: List<Input> = list.filter(inputs, fn(input) {filter_policyid(input,pid)})
+  let totaled_value = inputs_value(filtered_inputs)
+  quantity_of(totaled_value,pid, an)
+}
+
+fn filter_policyid(input: Input, policyid: PolicyId) -> Bool {
+  expect [(pid,_,_)] = flatten(input.output.value)
+  pid == policyid
+} 
+
 
 
 
