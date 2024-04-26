@@ -1,11 +1,20 @@
 use aiken/hash.{Blake2b_224, Hash}
+use aiken/transaction/credential.{VerificationKey}
+//use aiken/transaction/value.{PolicyId}
 
-// Type synonims.
+//constants
+
+pub const company_a_pkh: VerificationKeyHash = #""  // todo *** put pkh here
+//pub const lt_policyid: PolicyId = ""  // todo *** put pkh here
+//pub const company_a_address: Address = ""  // todo *** put pkh here
+
+// Types
+
+pub type POSIXtime =
+  Int
+
 
 pub type TokenName =
-  ByteArray
-
-pub type VerificationKey =
   ByteArray
 
 pub type Script =
@@ -14,5 +23,5 @@ pub type Script =
 pub type PolicyId =
   Hash<Blake2b_224, Script>
 
-pub type PublicKeyHash =
+pub type VerificationKeyHash =
   Hash<Blake2b_224, VerificationKey>

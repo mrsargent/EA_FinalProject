@@ -1,4 +1,15 @@
-1. Company A mints 10000 "Loyaly Coin Inu" (LCI).
-2. When user buys something from Company A they get LCI
-3. For every 10A they get 1 LCI 
-4. Once a user has accumulated 10 LCI they can claim a Loyalty NFT.
+Explantion of Project
+
+1. Company A mints 10000 "Loyalty Tokens" (LT) to distribute to customers who purchase services as a reward.
+2. Customers will get 1 LT for every 10 ADA spent
+3. Once a user has accumulated 10 LT they can claim (mint) a "Gold Star" Loyalty NFT utilizing CIP 25 metadata that allows them special privledges with the company.
+
+
+    The ability for a Company, in this case Company A, to track customer purchases on the blockchain is paramount. By implementing a system where purchases are recorded on the 
+    Cardano blockchain, Company A can ensure the integrity and transparency of its loyalty rewards program. Through this blockchain-based solution, Company A can seamlessly mint 
+    and distribute "Loyalty Tokens" (LT) to customers as a reward for their patronage, addressing step one of the project. The blockchain's ledger allows for accurate tracking 
+    of customer purchases, ensuring that customers receive the appropriate number of LT based on their spending, as outlined in step two. Furthermore, with the accumulation of LT,
+    customers can claim (mint) a "Gold Star" Loyalty NFT, which grants them special privileges with the company, as described in step three. This Cardano-based system not only 
+    facilitates the distribution of rewards but also enables Company A to personalize customer experiences, analyze purchasing patterns, and enhance customer engagement. Overall,
+    the integration of blockchain technology in tracking customer purchases empowers Company A to build trust, loyalty, and lasting relationships with its customers while driving 
+    operational efficiency and innovation in its loyalty rewards program.

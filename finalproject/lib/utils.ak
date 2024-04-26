@@ -1,9 +1,15 @@
 use aiken/list
-use aiken/transaction.{ScriptContext, Input, Output, Transaction, Spend,find_script_outputs}
+use aiken/transaction.{ScriptContext, Input, Output, Transaction, Spend,find_script_outputs,ValidityRange}
 use aiken/transaction/value.{Value, zero, merge}
 use aiken/transaction/credential.{from_verification_key}
-use types.{PolicyId, PublicKeyHash, TokenName}
+use types.{VerificationKeyHash,POSIXtime}
 use aiken/bytearray
+use aiken/interval.{Finite}
+
+
+pub fn must_be_signed_by(transaction: Transaction, vk: VerificationKeyHash) -> Bool{
+  list.has(transaction.extra_signatories, vk)
+}
 
 
 //get all the value of the inputs as an int 
@@ -23,8 +29,9 @@ pub fn inputs_value(inputs: List<Input>) -> Value {
 }
 
 
+
 // Get value paid to a public key address by a pending transaction
-pub fn value_paid_to(outputs: List<Output>, receiver: PublicKeyHash) -> Value {
+pub fn value_paid_to(outputs: List<Output>, receiver: VerificationKeyHash) -> Value {
   let addr = from_verification_key(receiver)
   expect [match] = list.filter(outputs, fn(output) {output.address == addr})
   match.value 
@@ -70,5 +77,21 @@ pub fn comparing(a: ByteArray, b: ByteArray) -> Bool {
   let sliced_a = bytearray.drop(a, n: 3)
   bytearray.compare(sliced_a, b) == Equal
 }
+
+pub fn must_start_after(range: ValidityRange, lock_expiration_time: POSIXtime) -> Bool {
+  when range.lower_bound.bound_type is {
+    Finite(tx_earliest_time) -> lock_expiration_time <= tx_earliest_time
+    _ -> False
+  }
+}
+
+
+pub fn must_complete_before(range: ValidityRange, lock_expiration_time: POSIXtime) -> Bool {
+  when range.upper_bound.bound_type is {
+    Finite(tx_latest_time) -> lock_expiration_time > tx_latest_time
+    _ -> False
+  }
+}
+
 
 

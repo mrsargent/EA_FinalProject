@@ -54,6 +54,7 @@ fn price_all_good(inputs: List<Input>, fee_value: Value, price: Int) -> Bool {
 
 //tests ----------------------------------------------------
 
+
 fn mk_price_redeemer (v: Int) -> ConditionsRedeemer {
   ConditionsRedeemer {action: Price, deadline: 0, owner: "", price: v}
 }

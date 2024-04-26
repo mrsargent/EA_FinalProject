@@ -1,11 +1,10 @@
 use aiken/list
-use aiken/transaction
 use aiken/transaction.{
-  InlineDatum, Input, Output, ScriptContext, Spend, Transaction,
+  InlineDatum, Input, Output, ScriptContext, Transaction,
 } as tx
 use utils
-use aiken/transaction/value.{Value, merge, zero} as value
-use types.{PolicyId, PublicKeyHash, TokenName}
+use aiken/transaction/value.{Value} as value
+use types.{PolicyId, VerificationKeyHash, TokenName}
 
 // Faucet Parameters
 
@@ -23,7 +22,7 @@ type FaucetDatum {
 }
 
 type FaucetRedeemer {
-  sender_pkh: PublicKeyHash,
+  sender_pkh: VerificationKeyHash,
   access_token_name: TokenName,
 }
 
