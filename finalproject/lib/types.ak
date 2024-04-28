@@ -10,9 +10,6 @@ pub const company_a_pkh: VerificationKeyHash = #"c32b8657a48213b56cdcbbd22d373e7
 
 // Types
 
-pub type RequirementDatum {
-    deadline: POSIXtime   
-}
 
 
 pub type POSIXtime =
