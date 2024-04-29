@@ -20,7 +20,10 @@ const API_KEY = "previewVUlq7WyCF2wdzZsao48qPAemzR7HCt4l";
 const pkh = new Constr(0, [
     new Constr(0, ["c32b8657a48213b56cdcbbd22d373e77a76394c9a0bfd098bb72d8f1"])]);
 
+///********** this is what it seem like it should be !!!!!!!!!!!!!!!!!!!!!!!1 */
+const pkh1 = new Constr(0, ["c32b8657a48213b56cdcbbd22d373e77a76394c9a0bfd098bb72d8f1"]);   
 
+ 
 interface contractJSON {
     "type": string;
     "description": string;
@@ -32,7 +35,7 @@ let contract: contractJSON = demo;
 const paramsContract = applyParamsToScript(contract.cborHex,[pkh,fromText("Loyalty Token")])
 
 const demo2:contractJSON = {
-    type: "PlutusV2",
+    type: "PlutusScriptV2",
     description: "The Parametrized contract",
     cborHex: paramsContract
 }   
@@ -50,7 +53,7 @@ async function writeJson(filePath: string, o: any) {
 console.log(demo2);
 
 //writeJson("demo.json", demo);
-writeJson("intialmint_refparam.json", demo2);
+writeJson("./compiled/initialmint_refparam.json", demo2);
 
 
 // const privateKey = 

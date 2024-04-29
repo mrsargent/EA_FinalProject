@@ -26,8 +26,13 @@ type RequirementDatum {
 //{"constructor":0,fields[{"int": 1713194931000},{"bytes": "c32b8657a48213b56cdcbbd22d373e77a76394c9a0bfd098bb72d8f1"},{"bytes": "2294779f65f35b4c16da0225138a537aadc3aa6d0316c0b3c32554a3"},{"bytes": ""},{"bytes": "Loyalty Token"}]}
 
 
+type TestRedeemer {
+   pkh : VerificationKeyHash,
+   tokename : ByteArray
+}
+
 validator{
-    fn price_requirement(datum: RequirementDatum, _redeemer: Data, ctx: ScriptContext) -> Bool {
+    fn price_requirement(datum: RequirementDatum, _redeemer: TestRedeemer, ctx: ScriptContext) -> Bool {
          let ScriptContext {transaction, .. } = ctx 
          let Transaction { inputs, .. } = transaction 
 

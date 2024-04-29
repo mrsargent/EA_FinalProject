@@ -20,12 +20,12 @@ validator(company_pkh: VerificationKeyHash, asset_name: ByteArray) {
             transaction.mint
                 |> from_minted_value
                 |> tokens(policyid)
-                |> dict.to_list
+                |> dict.to_list()
 
         let name_correct = asset_name == an 
         let qty_correct = qty == 10000
 
-        signed_by_company && name_correct && qty_correct
+        signed_by_company? && name_correct? && qty_correct?
     }
 }
 
