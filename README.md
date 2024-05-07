@@ -8,13 +8,28 @@ The ability for a Company, in this case Company A, to track customer purchases o
 
 As you can see from the diagram below this is 3 step protocol.
 
-#### Step 1. 
+#### Step 1 - Initial Token Mint 
 Company_A  is going to mint 10000 initial Loyalty Tokens (LTs).  It will require a signature from Company A along with checking to make sure they will be exactly 10000 tokens minteed with the correct asset name.
 
-#### Step 2. 
-A user (in this case we'll them User 1) will purchase something in ada from Company A.  The validator will check if has not passed the deadline, that Company A will be providing 1 LT for every 10 ADA the user spends, and that both the user and Company A has signed the transaction.
+![image showing diagram](/img//step1/diagram.jpg)
 
-#### Step 3. 
+Below you can see the logic of the minting policy.  It is a parameterized policy so it is taking in the PubKeyHash of Company A as a reference and also the asset name so it can verify the quantity and the name.
+
+![image showing diagram](/img//step1/code.jpg)
+
+
+Below you can see the cli script that executed the minting policy.  Notice line 23 that fulfilled the requirement for the PubKeyHash.   Also notice line 25 that fulfilled the requirement of the token quantity and assset name.
+
+![image showing diagram](/img//step1/cli.jpg)
+
+
+#### Step 2 - Validator Value Lock
+A user (in this case we'll them User 1) will purchase something in Ada from Company A.  The validator will check if transaction has not passed the deadline, that Company A will be providing 1 LT for every 10 ADA the user spends, and that both the user and Company A has signed the transaction.  If it has validated the conditions the LTs will be locked in the validator.
+
+#### Step 3 - Validator Value Unlock
+The user can now simply unlock the validator and receive the tokens.
+
+#### Step 4 - Claim NFT 
 Once a user as accrued 10 or more LTs they can claim a NFT.  This minting policy will check to make sure on only 1 will be minted with the correct asset name, that is is using a valid utxo and that they do indeed have 10 or more LTs. 
 
 ![image showing diagram](/img/diagram.jpg)

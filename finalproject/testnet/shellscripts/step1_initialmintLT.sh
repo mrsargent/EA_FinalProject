@@ -2,8 +2,8 @@
 # Company A can mint as many tokens as they want as many times as they want. The only thing that must happen is that 
 # company A must sign the transaction.  This prevents unauthorized people from minting
 
-utxoin1="f1000864b388edfeb5c87212c9643b6aa4209f0c338fc3ea6d44d8d8c38c9d10#1"
-policyid="e6e4f9803ea594ec0f6f822ed264d3a06a1dfa457afb38ffddeb852a" #$(cat ../../compiled/initialmint.pid)
+utxoin1="31814e80d9dedb94124370188866e37c542567eeacf6c9bb477b301c81b49224#1"
+policyid="0c3626175abe361b24728f3d80e2da26f21c0629cca89542c2935f37" #$(cat ../../compiled/initialmint.pid)
 company_a="addr_test1vrpjhpjh5jpp8dtvmjaaytfh8em6wcu5exstl5ychded3ugznvwe3"
 output="12000000"
 tokenamount="10000"

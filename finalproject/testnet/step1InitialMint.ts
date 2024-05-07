@@ -17,13 +17,20 @@ import demo from "./compiled/initialmint.json" assert { type: "json" };
 
 const API_KEY = "previewVUlq7WyCF2wdzZsao48qPAemzR7HCt4l";
 
-const pkh = new Constr(0, [
-    new Constr(0, ["c32b8657a48213b56cdcbbd22d373e77a76394c9a0bfd098bb72d8f1"])]);
+// const utxoRef = new Constr(0, [
+//     new Constr(0, ["405fcdd2ccb5b9437c073e2ad340b56e09030986"]),
+//     BigInt(4)]);
 
-///********** this is what it seem like it should be !!!!!!!!!!!!!!!!!!!!!!!1 */
-const pkh1 = new Constr(0, ["c32b8657a48213b56cdcbbd22d373e77a76394c9a0bfd098bb72d8f1"]);   
 
- 
+// const pkh = new Constr(0, [
+//     new Constr(0, ["c32b8657a48213b56cdcbbd22d373e77a76394c9a0bfd098bb72d8f1"])]);
+
+// ///********** this is what it seem like it should be !!!!!!!!!!!!!!!!!!!!!!!1 */
+// const pkh1 = new Constr(0, ["c32b8657a48213b56cdcbbd22d373e77a76394c9a0bfd098bb72d8f1"]);   
+
+const pkh2: string  = "c32b8657a48213b56cdcbbd22d373e77a76394c9a0bfd098bb72d8f1";
+
+
 interface contractJSON {
     "type": string;
     "description": string;
@@ -32,7 +39,9 @@ interface contractJSON {
 
 let contract: contractJSON = demo;
 
-const paramsContract = applyParamsToScript(contract.cborHex,[pkh,fromText("Loyalty Token")])
+const paramsContract = applyParamsToScript(contract.cborHex,[pkh2,fromText("Loyalty Token")]);
+
+//const paramsContract = applyParamsToScript(contract.cborHex,[fromText("Loyalty Token")]);
 
 const demo2:contractJSON = {
     type: "PlutusScriptV2",
@@ -54,6 +63,16 @@ console.log(demo2);
 
 //writeJson("demo.json", demo);
 writeJson("./compiled/initialmint_refparam.json", demo2);
+
+
+
+const ryanTest = "c32b8657a48213b56cdcbbd22d373e77a76394c9a0bfd098bb72d8f1";
+const ryanToData = Data.to(ryanTest);
+const ryanFromData = Data.from(ryanToData);
+
+console.log(ryanTest);
+console.log(ryanToData);
+console.log(ryanFromData);
 
 
 // const privateKey = 
