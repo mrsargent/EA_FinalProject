@@ -38,8 +38,13 @@ pub fn inputs_value_filter(inputs: List<Input>, pid: PolicyId,an: AssetName) -> 
 }
 
 fn filter_policyid(input: Input, policyid: PolicyId) -> Bool {
-  expect [(pid,_,_)] = flatten(input.output.value)
-  pid == policyid
+  list.any(
+    flatten(input.output.value),
+      fn(asset) {
+        let (p,_,_) = asset 
+        p == policyid 
+      }
+  )
 } 
 
 

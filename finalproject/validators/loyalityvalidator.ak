@@ -2,7 +2,7 @@
 use aiken/transaction/credential.{from_script}
 use aiken/transaction.{ScriptContext,Transaction, Input,Output,OutputReference,TransactionId, NoDatum} 
 use types.{POSIXtime,VerificationKeyHash}
-use aiken/transaction/value.{PolicyId,from_asset,AssetName, ada_asset_name,ada_policy_id}
+use aiken/transaction/value.{PolicyId,from_asset,AssetName, ada_asset_name,ada_policy_id,from_asset_list}
 use aiken/list
 use utils
 use aiken/interval.{Finite, Interval,IntervalBound, NegativeInfinity}
@@ -23,7 +23,11 @@ type RequirementDatum {
     lt_policyid: PolicyId,
     lt_assetname: AssetName   
 }
-//{"constructor":0,fields[{"int": 1713194931000},{"bytes": "c32b8657a48213b56cdcbbd22d373e77a76394c9a0bfd098bb72d8f1"},{"bytes": "2294779f65f35b4c16da0225138a537aadc3aa6d0316c0b3c32554a3"},{"bytes": ""},{"bytes": "Loyalty Token"}]}
+//{"constructor":0,fields[{"int": 1717795880000},
+//       {"bytes": "c32b8657a48213b56cdcbbd22d373e77a76394c9a0bfd098bb72d8f1"},
+//       {"bytes": "2294779f65f35b4c16da0225138a537aadc3aa6d0316c0b3c32554a3"},
+//       {"bytes": "0c3626175abe361b24728f3d80e2da26f21c0629cca89542c2935f37"},
+//       {"bytes": "4c6f79616c747920546f6b656e"}]}
 
 
 type TestRedeemer {
@@ -41,8 +45,9 @@ validator{
 
          //check that time has not passed the deadline
          let time_check = utils.must_complete_before(ctx.transaction.validity_range,datum.deadline)
-
+       
          //check to make sure the amount of ada and the amount of LT tokens are equivalent to a 10:1 ratio
+         //let token_ratio = find_token_ratio(inputs,datum.lt_policyid,datum.lt_assetname)
          let token_ratio = find_token_ratio(inputs,datum.lt_policyid,datum.lt_assetname)
 
          signed && time_check && token_ratio
@@ -58,9 +63,10 @@ fn signed_by_both_parties(transaction: Transaction, c_pkh: VerificationKeyHash, 
 
 fn find_token_ratio(inputs: List<Input>, pid: PolicyId, an: AssetName) -> Bool {
    //get the value of total ada in the inputs with this function from my utils lib
-   let num_ada: Int = utils.inputs_int(inputs)
+   //let num_ada: Int = utils.inputs_int(inputs)
+   let num_ada: Int = utils.inputs_value_filter(inputs,ada_policy_id,ada_asset_name)
    let num_lt: Int = utils.inputs_value_filter(inputs,pid,an)
-   num_ada/10 >= num_lt
+   (num_ada/10) >= num_lt
 }
 
 
@@ -112,14 +118,14 @@ test inputs_value_filter_test1() fail {
 }
 
 test find_token_ratio_test() {
-   let p_lt: PolicyId = "00000000000000000"
-   let a_lt: AssetName = "Loyalty Token"
-   let i_lt = mk_input(3,p_lt,a_lt)
+   let p_lt: PolicyId = #"0c3626175abe361b24728f3d80e2da26f21c0629cca89542c2935f37"
+   let a_lt: AssetName = "4c6f79616c747920546f6b656e"
+   let i_lt = mk_input(1,p_lt,a_lt)
    let list_lt = list.repeat(i_lt,3)
 
    let p_ada: PolicyId = ada_policy_id
    let a_ada: AssetName = ada_asset_name
-   let i_ada = mk_input(3,p_ada,a_ada)
+   let i_ada = mk_input(1,p_ada,a_ada)
    let list_ada = list.repeat(i_ada,30)
 
    let list_tot = list.concat(list_lt,list_ada)
@@ -127,8 +133,8 @@ test find_token_ratio_test() {
 }
 
 test find_token_ratio_test1() {
-   let p_lt: PolicyId = "00000000000000000"
-   let a_lt: AssetName = "Loyalty Token"
+   let p_lt: PolicyId = #"0c3626175abe361b24728f3d80e2da26f21c0629cca89542c2935f37"
+   let a_lt: AssetName = "4c6f79616c747920546f6b656e"
    let i_lt = mk_input(3,p_lt,a_lt)
    let list_lt = list.repeat(i_lt,3)
 
@@ -142,8 +148,8 @@ test find_token_ratio_test1() {
 }
 
 test find_token_ratio_test2() fail {
-   let p_lt: PolicyId = "00000000000000000"
-   let a_lt: AssetName = "Loyalty Token"
+   let p_lt: PolicyId = #"0c3626175abe361b24728f3d80e2da26f21c0629cca89542c2935f37"
+   let a_lt: AssetName = "4c6f79616c747920546f6b656e"
    let i_lt = mk_input(3,p_lt,a_lt)
    let list_lt = list.repeat(i_lt,3)
 
@@ -155,6 +161,25 @@ test find_token_ratio_test2() fail {
    let list_tot = list.concat(list_lt,list_ada)
    find_token_ratio(list_tot,p_lt,a_lt)   
 }
+
+test find_token_ratio_test3() {
+   let p_lt: PolicyId = #"0c3626175abe361b24728f3d80e2da26f21c0629cca89542c2935f37"
+   let a_lt: AssetName = "4c6f79616c747920546f6b656e"
+   let i_lt = mk_input_fromListOfValue(3,p_lt,a_lt,100)
+  
+   let list_tot = [i_lt]
+   find_token_ratio(list_tot,p_lt,a_lt)   
+}
+
+test find_token_ratio_test4() fail {
+   let p_lt: PolicyId = #"0c3626175abe361b24728f3d80e2da26f21c0629cca89542c2935f37"
+   let a_lt: AssetName = "4c6f79616c747920546f6b656e"
+   let i_lt = mk_input_fromListOfValue(3,p_lt,a_lt,10)
+  
+   let list_tot = [i_lt]
+   find_token_ratio(list_tot,p_lt,a_lt)   
+}
+
 
 
 //*********************** test "must_complete_before" function to make sure deadline has not been reach *********************
@@ -202,6 +227,15 @@ fn mk_input(value: Int,p: PolicyId, a: AssetName) -> Input {
    let output = Output {address: from_script(""), value: val, datum: NoDatum, reference_script: None}
    Input { output_reference: mk_output_reference(), output: output}
 }
+
+
+fn mk_input_fromListOfValue(value_na: Int,p: PolicyId, a: AssetName, value_ada: Int) -> Input {
+   let ls = [(ada_policy_id, [(ada_asset_name, value_ada)]), (p, [(a, value_na)])]   
+   let val = from_asset_list(ls)
+   let output = Output {address: from_script(""), value: val, datum: NoDatum, reference_script: None}
+   Input { output_reference: mk_output_reference(), output: output}
+}
+
 
 
 // fn mk_price_redeemer (v: Int) -> ConditionsRedeemer {
