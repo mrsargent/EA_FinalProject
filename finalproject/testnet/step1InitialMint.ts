@@ -16,18 +16,7 @@ import demo from "./compiled/initialmint.json" assert { type: "json" };
 
 
 const API_KEY = "previewVUlq7WyCF2wdzZsao48qPAemzR7HCt4l";
-
-// const utxoRef = new Constr(0, [
-//     new Constr(0, ["405fcdd2ccb5b9437c073e2ad340b56e09030986"]),
-//     BigInt(4)]);
-
-
-// const pkh = new Constr(0, [
-//     new Constr(0, ["c32b8657a48213b56cdcbbd22d373e77a76394c9a0bfd098bb72d8f1"])]);
-
-// ///********** this is what it seem like it should be !!!!!!!!!!!!!!!!!!!!!!!1 */
-// const pkh1 = new Constr(0, ["c32b8657a48213b56cdcbbd22d373e77a76394c9a0bfd098bb72d8f1"]);   
-
+  
 const pkh2: string  = "c32b8657a48213b56cdcbbd22d373e77a76394c9a0bfd098bb72d8f1";
 
 

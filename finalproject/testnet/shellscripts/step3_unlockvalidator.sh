@@ -1,8 +1,7 @@
 utxoin_contract_company_LT="cb832e77f5bfed9f73813e797f35c7114a4770f2ebcfd2ea0bcd67a7a99a5720#0"  #utxo with LT tokens from contrat that company A locked
-utxoin_contract_user_ada="e5bb10a20d7223073ebc53820839606b8e905f0678e9d532541accd9c0ae51c3#2"
 company_address="addr_test1wzp9dgtgtrcsh3dw4az992ej3kwasxmd6d2x47r3jqrjans39kuwd"
 user_address="addr_test1vq3fgaulvhe4knqkmgpz2yu22da2msa2d5p3ds9ncvj4fgcldkaz4"
-output_to_company="130000000"
+output_to_company="100000000"
 tokenamount="10"
 output_to_user="5000000"
 company_a_signerPKH="c32b8657a48213b56cdcbbd22d373e77a76394c9a0bfd098bb72d8f1"  

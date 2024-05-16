@@ -4,7 +4,7 @@ use utils
 use aiken/dict
 use aiken/list
 
-//Requirements for Step 3.  If user has 10 or more Loyal Tokens (LT) then they can claim (mint)
+//Requirements for Step 4.  If user has 10 or more Loyal Tokens (LT) then they can claim (mint)
 //a special NFT.
 // 1. The user claiming the NFT must have 10 or more tokens
 // 2. Must check to make sure the NFT as the correct value
