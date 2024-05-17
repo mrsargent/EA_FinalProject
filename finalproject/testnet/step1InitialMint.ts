@@ -63,6 +63,9 @@ console.log(ryanTest);
 console.log(ryanToData);
 console.log(ryanFromData);
 
+//to run
+///deno run --allow-net --allow-read --allow-env step4NFTclaim.ts
+
 
 // const privateKey = 
 

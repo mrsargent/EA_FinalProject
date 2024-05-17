@@ -11,16 +11,16 @@ As you can see from the diagram below this is 4 step protocol.  First, we will b
 ![image showing diagram](/img/diagram.jpg)
 
 #### Step 1 - Initial Token Mint 
-Company_A  is going to mint 10000 initial Loyalty Tokens (LTs).  It will require a signature from Company A along with checking to make sure they will be exactly 10000 tokens minteed with the correct asset name (see initialminter.ak in the project).
+Company_A  is going to mint 10000 initial Loyalty Tokens (LTs) with the initialMinter minting policy.  This policy will require a signature from Company A to ensure that only Company A is allowed to mint. In addition it will check to make sure they will be exactly 10000 tokens minted with the correct asset name (see initialminter.ak in the project).
 
 ![image showing diagram](/img//step1/diagram.jpg)
 
-Below you can see the logic of the minting policy.  It is a parameterized policy so it is taking in the PubKeyHash of Company A as a reference and also the asset name so it can verify the quantity and the name.
+Below you can see the logic of the minting policy.  It is a parameterized policy so it is taking in the verification key hash of Company A as a reference and also the asset name so it can verify the quantity and the name of the native token (LT).
 
 ![image showing diagram](/img//step1/code.jpg)
 
 
-Below you can see the cli script that executed the minting policy.  Notice line 23 that fulfilled the requirement for the PubKeyHash.   Also notice line 25 that fulfilled the requirement of the token quantity and assset name.
+Below you can see the cli script that executed the minting policy.  Notice line 23 that fulfilled the requirement for the verification key hash.   Also notice line 25 that fulfilled the requirement of the token quantity and assset name.
 
 ![image showing diagram](/img//step1/cli.jpg)
 
@@ -28,11 +28,11 @@ Below you can see the cli script that executed the minting policy.  Notice line 
 
 #### Step 2 - Validator Value Lock
 
-A user (in this case we'll them User 1) will purchase something in Ada from Company A and submit this value to the validator address.  Comany_A will submit the corresponding number of Loyalty Tokens for the amount of Ada received.  In this case the user submitted a little over 100 Ada and recieved some change the Company A submitted 10 tokens.    
+A user (in this case we'll them User 1) will purchase something in Ada from Company A and submit this value to the validator address.  Comany_A will submit the corresponding number of Loyalty Tokens for the amount of Ada received.  In this case the user submitted a little over 100 Ada and recieved some change and Company A submitted 10 tokens.    
 
 ![image showing diagram](/img//step2/diagram.jpg)
 
-In addition to the value I had to submit the datum.  The datum I am using contained 5 fields: both Company A and User1 verification key has, the asset name and policy id of the LT, and the deadline in which this value must be unlocked by.  Below is the code of the datum.  Below the code in the commented section is the actual values of the .json file I submitted that has spaces for readability.  The actual file is 1 line.  
+In addition to the value the datum had to be submitted.  The datum that is used contained 5 fields: both Company A and User1 verification key hash, the asset name and policy id of the LT, and the deadline in which this value must be unlocked by.  Below is the code of the datum.  Below the code in the commented section is the actual values of the .json file that was submitted that has spaces for readability.  The actual file is 1 line.  
 
 ![image showing diagram](/img//step2/datum.jpg)
 
@@ -42,7 +42,7 @@ The below cli script was used to submit the previously described data.
 
 
 #### Step 3 - Validator Value Unlock
-User1 can now unlock the value.  The validator will check if transaction has not passed the deadline, that both User1 and Company A signs the transaction and that Company A will be providing 1 LT for every 10 ADA the user spends (see loyalityvalidator.ak in project).
+User1 can now unlock the value.  The validator will check if transaction has not passed the deadline, that both User1 and Company A signs the transaction and that Company A will be providing 1 LT for every 10 ADA the user spends.  In addition Company A will recieve the Ada that was spent (see loyalityvalidator.ak in project).
 
 ![image showing diagram](/img//step3/validator.jpg)
 
@@ -50,7 +50,7 @@ This is the script I used to unlock the value from the validator.
 
 ![image showing diagram](/img//step3/cli.jpg)
 
-We can see User1 wallet now is in possesion of 10 LTs
+We can see User1 wallet now is in possesion of 10 LTs.
 
 ![image showing diagram](/img//step3/tokenconfirm.jpg)
 
@@ -80,7 +80,7 @@ The final result is the NFT is in the User1 wallet
 
 #### Compile
 
-You can compile the code by navigating to the main directory of the project and use the **aiken check** command.  You will also be able to see all the tests that were passed in order to contruct a working project.
+You can compile the code by navigating to the main directory of the project and use the **aiken check** command.  You will also be able to see all the tests that were passed to prove the functionality of all the functions in the project.
 
 
 ![image showing diagram](/img//project/compile.jpg)
