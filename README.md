@@ -1,4 +1,4 @@
-# Emurgo Academy Final Project - Loalty token distribution
+# Emurgo Academy Final Project - Loalty Token Distribution
 
 ## Introduction
 
@@ -11,7 +11,7 @@ As you can see from the diagram below this is 4 step protocol.  First, we will b
 ![image showing diagram](/img/diagram.jpg)
 
 #### Step 1 - Initial Token Mint 
-Company_A  is going to mint 10000 initial Loyalty Tokens (LTs) with the initialMinter minting policy.  This policy will require a signature from Company A to ensure that only Company A is allowed to mint. In addition it will check to make sure they will be exactly 10000 tokens minted with the correct asset name (see initialminter.ak in the project).
+Company_A  is going to mint 10000 initial Loyalty Tokens (LTs) with the initialMinter minting policy.  This policy will require a signature from Company A to ensure that <u>only Company A is allowed to mint</u>. In addition it will check to make sure they will be exactly 10000 tokens minted with the correct asset name (see initialminter.ak in the project).
 
 ![image showing diagram](/img//step1/diagram.jpg)
 
