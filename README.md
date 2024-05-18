@@ -1,4 +1,4 @@
-# Emurgo Academy Final Project - Loalty Token Distribution
+# Emurgo Academy Final Project - Loality Token Distribution
 
 ## Introduction
 
