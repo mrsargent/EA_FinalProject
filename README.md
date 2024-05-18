@@ -11,7 +11,7 @@ As you can see from the diagram below this is 4 step protocol.  First, we will b
 ![image showing diagram](/img/diagram.jpg)
 
 #### Step 1 - Initial Token Mint 
-Company_A  is going to mint 10000 initial Loyalty Tokens (LTs) with the initialMinter minting policy.  This policy will require a signature from Company A to ensure that <u>only Company A is allowed to mint</u>. In addition it will check to make sure they will be exactly 10000 tokens minted with the correct asset name (see initialminter.ak in the project).
+Company_A  is going to mint 10000 initial Loyalty Tokens (LTs) with the initialMinter minting policy.  This policy will require a signature from Company A to ensure that **only Company A is allowed to mint**. In addition it will check to make sure they will be exactly 10000 tokens minted with the correct asset name (see initialminter.ak in the project).
 
 ![image showing diagram](/img//step1/diagram.jpg)
 
@@ -89,7 +89,7 @@ You can do an optional **aiken build** to recompile the blueprint although that 
 
 
 #### Execute Scripts
-You can execute the shell scripts to reproduce the results.  These are all described with descriptive wording for each step in finalproject/testnet/shellscripts.  You will have to change all the utxos in teh scripts as ones currently provided have been consumed.  There are provided wallets in the finalproject/Wallet that may need more funds.
+You can execute the shell scripts to reproduce the results.  These are all described with descriptive wording for each step in finalproject/testnet/shellscripts.  You will have to change all the utxos in teh scripts as ones currently provided have been consumed.  The provided wallets in the finalproject/Wallet for Company A and User1 must be used as in the initial minter and the validator it requires the verification key hash of both users to avoid malicious people minting and stealing tokens. 
 
 
 
