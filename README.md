@@ -28,7 +28,7 @@ Below you can see the cli script that executed the minting policy.  Notice line 
 
 #### Step 2 - Validator Value Lock
 
-A user (in this case we'll them User 1) will purchase something in Ada from Company A and submit this value to the validator address.  Comany_A will submit the corresponding number of Loyalty Tokens for the amount of Ada received.  For this loyality program it is a 10:1 ratio.  In this case the user submitted a little over 100 Ada and recieved some change and Company A submitted 10 tokens.
+A user (in this case we'll them User 1) will purchase something in Ada from Company A and submit this value to the validator address.  Comany_A will submit the corresponding number of Loyalty Tokens for the amount of Ada received.  For this loyality program it is a 10:1 ratio.  In this case the user submitted a little over 100 Ada and received some change and Company A submitted 10 tokens in the transaction.
 
 ![image showing diagram](/img//step2/diagram.jpg)
 
@@ -42,11 +42,11 @@ The below cli script was used to submit the previously described data.
 
 
 #### Step 3 - Validator Value Unlock
-User1 can now unlock the value.  The validator will check if transaction has not passed the deadline, that both User1 and Company A signs the transaction and that Company A will be providing 1 LT for every 10 ADA the user spends.  In addition Company A will recieve the Ada that was spent (see loyalityvalidator.ak in project).
+User1 can now unlock the value.  The validator will check if transaction has not passed the deadline, that both User1 and Company A have signed the transaction and that Company A will be providing 1 LT for every 10 ADA the user spends.  In addition, Company A will recieve the Ada that was spent (see loyalityvalidator.ak in project).
 
 ![image showing diagram](/img//step3/validator.jpg)
 
-This is the script I used to unlock the value from the validator.
+This sript was used to unlock the value from the validator.
 
 ![image showing diagram](/img//step3/cli.jpg)
 
@@ -57,7 +57,7 @@ We can see User1 wallet now is in possesion of 10 LTs.
 
 
 #### Step 4 - Claim NFT 
-Once a user as accrued 10 or more LTs they can claim a "Gold Star" NFT.  This minting policy will check to make sure on only 1 will be minted with the correct asset name, that is is using a valid utxo that can only be used once and that they do indeed have 10 or more LTs (see claimnft.ak in project).  No signature is required as anyone with atleast 10 LT can mint a NFT.
+Once a user as accrued 10 or more LTs they can claim a "Gold Star" NFT.  This is done through a minting policy that will check to make sure on only 1 NFT will be minted with the correct asset name. The policy also checks that it is using a valid utxo that can only be used once and that they do indeed have 10 or more LTs (see claimnft.ak in project).  No signature is required as anyone with atleast 10 LT can mint a NFT.
 
 ![image showing diagram](/img//step4/diagram.jpg)
 
@@ -65,7 +65,7 @@ Below is the minting policy that was used
 
 ![image showing diagram](/img//step4/mintingpolicy.jpg)
 
-I submitted the previous utxo from User1 that contained the 10 LT tokens.  I also included another utxo from User1 to provide enough Ada to mint the NFT.  Here is the cli script used
+Submitted was the previous utxo from User1 that contained the 10 LT tokens.  I also included another utxo from User1 to provide enough Ada to mint the NFT.  Here is the cli script used
 
  ![image showing diagram](/img//step4/cli.jpg)
 
