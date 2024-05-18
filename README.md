@@ -2,7 +2,7 @@
 
 ## Introduction
 
-The ability for a Company, in this case Company A, to track customer purchases on the blockchain is paramount. By implementing a system where purchases are recorded on the Cardano blockchain, Company A can ensure the integrity and transparency of its loyalty rewards program. Through this blockchain-based solution, Company A can seamlessly mint and distribute "Loyalty Tokens" (LT) to customers as a reward for their patronage. The blockchain's ledger allows for accurate tracking of customer purchases, ensuring that customers receive the appropriate number of LT based on their spending. Furthermore, with the accumulation of LT, customers can claim (mint) a "Gold Star" Loyalty NFT, which grants them special privileges with the company. This Cardano-based system not only facilitates the distribution of rewards but also enables Company A to personalize customer experiences, analyze purchasing patterns, and enhance customer engagement. Overall, the integration of blockchain technology in tracking customer purchases empowers Company A to build trust, loyalty, and lasting relationships with its customers while driving operational efficiency and innovation in its loyalty rewards program.
+To ensure the integrity and transparency of its loyalty rewards program, Company A must track customer purchases on the blockchain. This project proposes a Cardano-based system that facilitates the recording of purchases on the Cardano blockchain.  This system tracks the distribution of rewards and enables Company A to personalize customer experiences, analyze purchasing patterns, and enhance customer engagement. Through this blockchain-based solution, Company A can mint and distribute &quot;Loyalty Tokens&quot; (LT) to customers as a reward for their patronage. The blockchain&#39;s ledger allows for accurate tracking of customer purchases, ensuring that customers receive the appropriate number of LT based on their spending. Furthermore, with the accumulation of LT, customers can claim (mint) a &quot;Gold Star&quot; Loyalty NFT, which grants them special privileges with the company. Taken together, the integration of this blockchain technology in tracking customer purchases empowers Company A to build trust, loyalty, and lasting relationships with its customers while driving operational efficiency and innovation in its loyalty rewards program.
 
 ## Overview
 
@@ -42,7 +42,7 @@ The below cli script was used to submit the previously described data.
 
 
 #### Step 3 - Validator Value Unlock
-User1 can now unlock the value.  The validator will check if transaction has not passed the deadline, that both User1 and Company A have signed the transaction and that Company A will be providing 1 LT for every 10 ADA the user spends.  In addition, Company A will recieve the Ada that was spent (see loyalityvalidator.ak in project).
+User1 can now unlock the value.  The validator will check if transaction has not passed the deadline, that both User 1 and Company A have signed the transaction and that Company A will be providing 1 LT for every 10 ADA the user spends.  In addition, Company A will recieve the Ada that was spent (see loyalityvalidator.ak in project).
 
 ![image showing diagram](/img//step3/validator.jpg)
 
@@ -50,7 +50,7 @@ This sript was used to unlock the value from the validator.
 
 ![image showing diagram](/img//step3/cli.jpg)
 
-We can see User1 wallet now is in possesion of 10 LTs.
+We can see User 1 wallet now is in possesion of 10 LTs.
 
 ![image showing diagram](/img//step3/tokenconfirm.jpg)
 
@@ -69,7 +69,7 @@ Submitted was the previous utxo from User1 that contained the 10 LT tokens.  Als
 
  ![image showing diagram](/img//step4/cli.jpg)
 
-The final result is the NFT is in the User1 wallet
+The final result is the NFT is in User1's wallet
 
  ![image showing diagram](/img//step4/result.jpg)
 
@@ -89,7 +89,7 @@ You can do an optional **aiken build** to recompile the blueprint although that 
 
 
 #### Execute Scripts
-You can execute the shell scripts to reproduce the results.  These are all described with descriptive wording for each step in finalproject/testnet/shellscripts.  You will have to change all the utxos in the scripts as ones currently provided have been consumed.  The provided wallets in the finalproject/Wallet for Company A and User1 must be used as in the initial minter and the validator it requires the verification key hash of both users to avoid malicious people minting and stealing tokens (e.g. Bad Bob). 
+You can execute the shell scripts to reproduce the results.  These are all described with descriptive wording for each step in finalproject/testnet/shellscripts.  You will have to change all the utxos in the scripts as ones currently provided have been consumed.  The provided wallets in the finalproject/Wallet for Company A and User1 must be used.  The initial minter and validator requires the verification key hash of both users to avoid malicious people minting and stealing tokens (e.g. Bad Bob). 
 
 
 
