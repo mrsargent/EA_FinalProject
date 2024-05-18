@@ -28,7 +28,7 @@ Below you can see the cli script that executed the minting policy.  Notice line 
 
 #### Step 2 - Validator Value Lock
 
-A user (in this case we'll them User 1) will purchase something in Ada from Company A and submit this value to the validator address.  Comany_A will submit the corresponding number of Loyalty Tokens for the amount of Ada received.  For this loyality program it is a 10:1 ratio.  In this case the user submitted a little over 100 Ada and received some change and Company A submitted 10 tokens in the transaction.
+A user (in this case we'll them User 1) will purchase something in Ada from Company A and submit this value to the validator address.  Comany A will submit the corresponding number of Loyalty Tokens for the amount of Ada received.  For this loyality program it is a 10:1 ratio.  In this case the user submitted a little over 100 Ada and received some change and Company A submitted 10 tokens in the transaction.
 
 ![image showing diagram](/img//step2/diagram.jpg)
 
@@ -57,7 +57,7 @@ We can see User1 wallet now is in possesion of 10 LTs.
 
 
 #### Step 4 - Claim NFT 
-Once a user as accrued 10 or more LTs they can claim a "Gold Star" NFT.  This is done through a minting policy that will check to make sure on only 1 NFT will be minted with the correct asset name. The policy also checks that it is using a valid utxo that can only be used once and that they do indeed have 10 or more LTs (see claimnft.ak in project).  No signature is required as anyone with atleast 10 LT can mint a NFT.
+Once a user as accrued 10 or more LTs they can claim a "Gold Star" NFT.  This is done through a minting policy that will check to make sure on only 1 NFT will be minted with the correct asset name. The policy also checks that it is using a valid utxo that can only be used once and that they do indeed have 10 or more LTs (see claimnft.ak in project).  **No signature is required as anyone with atleast 10 LT can mint a NFT.**
 
 ![image showing diagram](/img//step4/diagram.jpg)
 
@@ -65,7 +65,7 @@ Below is the minting policy that was used
 
 ![image showing diagram](/img//step4/mintingpolicy.jpg)
 
-Submitted was the previous utxo from User1 that contained the 10 LT tokens.  I also included another utxo from User1 to provide enough Ada to mint the NFT.  Here is the cli script used
+Submitted was the previous utxo from User1 that contained the 10 LT tokens.  Also included is another utxo from User1 to provide enough Ada to mint the NFT.  Here is the cli script used
 
  ![image showing diagram](/img//step4/cli.jpg)
 
@@ -89,7 +89,7 @@ You can do an optional **aiken build** to recompile the blueprint although that 
 
 
 #### Execute Scripts
-You can execute the shell scripts to reproduce the results.  These are all described with descriptive wording for each step in finalproject/testnet/shellscripts.  You will have to change all the utxos in teh scripts as ones currently provided have been consumed.  The provided wallets in the finalproject/Wallet for Company A and User1 must be used as in the initial minter and the validator it requires the verification key hash of both users to avoid malicious people minting and stealing tokens. 
+You can execute the shell scripts to reproduce the results.  These are all described with descriptive wording for each step in finalproject/testnet/shellscripts.  You will have to change all the utxos in the scripts as ones currently provided have been consumed.  The provided wallets in the finalproject/Wallet for Company A and User1 must be used as in the initial minter and the validator it requires the verification key hash of both users to avoid malicious people minting and stealing tokens (e.g. Bad Bob). 
 
 
 
