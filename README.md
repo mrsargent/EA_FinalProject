@@ -11,7 +11,7 @@ As you can see from the diagram below this is 4 step protocol.  First, we will b
 ![image showing diagram](/img/diagram.jpg)
 
 #### Step 1 - Initial Token Mint 
-Company_A  is going to mint 10000 initial Loyalty Tokens (LTs) with the initialMinter minting policy.  This policy will require a signature from Company A to ensure that **only Company A is allowed to mint**. In addition it will check to make sure they will be exactly 10000 tokens minted with the correct asset name (see initialminter.ak in the project).
+Company_A  is going to mint 10000 initial Loyalty Tokens (LTs) with the initialMinter minting policy.  This policy will require a signature from Company A to ensure that **only Company A is allowed to mint**. In addition it will check to make sure there will be exactly 10000 tokens minted with the correct asset name (see initialminter.ak in the project).
 
 ![image showing diagram](/img//step1/diagram.jpg)
 
@@ -24,7 +24,7 @@ Below you can see the cli script that executed the minting policy.  Notice line 
 
 ![image showing diagram](/img//step1/cli.jpg)
 
-<span style="color:red;"> As a note this minting policy had additional parameters.  The Company verification key hash and the token asset name were parameterized in the minting policy. You can see step1InitialMint.ts in the project to see how I parameterized these to be used in the actual minting policy. </span>
+**As a note this minting policy had additional parameters.  The Company verification key hash and the token asset name were parameterized in the minting policy. You can see step1InitialMint.ts in the project to see how I parameterized these to be used in the actual minting policy.**
 
 #### Step 2 - Validator Value Lock
 
@@ -74,7 +74,7 @@ The final result is the NFT is in the User1 wallet
  ![image showing diagram](/img//step4/result.jpg)
 
 
-<span style="color:red;"> As a note this minting policy had additional parameters as well.  The utxoRef, NFT name, Loyalty token policy id and asset name were all parameterized in this policy.  See step4NFTClaim.ts in the project for more details. </span>
+**As a note this minting policy had additional parameters as well.  The utxoRef, NFT name, Loyalty token policy id and asset name were all parameterized in this policy.  See step4NFTClaim.ts in the project for more details.**
 
 ## Using the Project
 
