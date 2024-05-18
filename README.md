@@ -11,7 +11,7 @@ As you can see from the diagram below this is 4 step protocol.  First, we will b
 ![image showing diagram](/img/diagram.jpg)
 
 #### Step 1 - Initial Token Mint 
-Company_A  is going to mint 10000 initial Loyalty Tokens (LTs) with the initialMinter minting policy.  This policy will require a signature from Company A to ensure that **only Company A is allowed to mint**. In addition it will check to make sure there will be exactly 10000 tokens minted with the correct asset name (see initialminter.ak in the project).
+Company A  is going to mint 10000 initial Loyalty Tokens (LTs) with the initialMinter minting policy.  This policy will require a signature from Company A to ensure that **only Company A is allowed to mint**. In addition it will check to make sure there will be exactly 10000 tokens minted with the correct asset name (see initialminter.ak in the project).
 
 ![image showing diagram](/img//step1/diagram.jpg)
 
@@ -32,7 +32,7 @@ A user (in this case we'll them User 1) will purchase something in Ada from Comp
 
 ![image showing diagram](/img//step2/diagram.jpg)
 
-In addition to the value the datum had to be submitted.  The datum that is used contained 5 fields: both Company A and User1 verification key hash, the asset name and policy id of the LT, and the deadline in which this value must be unlocked by.  Below is the code of the datum.  Below the code in the commented section is the actual values of the .json file that was submitted that has spaces for readability.  The actual file is 1 line (see requirement_datum.json).   
+In addition to the value the datum had to be submitted.  The datum that is used contained 5 fields: both Company A and User 1 verification key hash, the asset name and policy id of the LT, and the deadline in which this value must be unlocked.  Below is the code of the datum.  Below the code in the commented section is the actual values of the .json file that was submitted which has spaces for readability.  The actual file is 1 line (see requirement_datum.json).   
 
 ![image showing diagram](/img//step2/datum.jpg)
 
@@ -42,7 +42,7 @@ The below cli script was used to submit the previously described data.
 
 
 #### Step 3 - Validator Value Unlock
-User1 can now unlock the value.  The validator will check if transaction has not passed the deadline, that both User 1 and Company A have signed the transaction and that Company A will be providing 1 LT for every 10 ADA the user spends.  In addition, Company A will recieve the Ada that was spent (see loyalityvalidator.ak in project).
+User 1 can now unlock the value.  The validator will check if transaction has not passed the deadline, that both User 1 and Company A have signed the transaction and that Company A will be providing 1 LT for every 10 ADA the user spends.  In addition, Company A will recieve the Ada that was spent (see loyalityvalidator.ak in project).
 
 ![image showing diagram](/img//step3/validator.jpg)
 
@@ -57,7 +57,7 @@ We can see User 1 wallet now is in possesion of 10 LTs.
 
 
 #### Step 4 - Claim NFT 
-Once a user as accrued 10 or more LTs they can claim a "Gold Star" NFT.  This is done through a minting policy that will check to make sure on only 1 NFT will be minted with the correct asset name. The policy also checks that it is using a valid utxo that can only be used once and that they do indeed have 10 or more LTs (see claimnft.ak in project).  **No signature is required as anyone with atleast 10 LT can mint a NFT.**
+Once a user as accrued 10 or more LTs they can claim a "Gold Star" NFT.  This is done through a minting policy that will check to make sure on only 1 NFT will be minted with the correct asset name. The policy also checks that it is using a valid utxo that can only be used once and that they do indeed have 10 or more LTs (see claimnft.ak in project).  **No signature is required as anyone with at least 10 LT can mint a NFT.**
 
 ![image showing diagram](/img//step4/diagram.jpg)
 
@@ -65,11 +65,11 @@ Below is the minting policy that was used
 
 ![image showing diagram](/img//step4/mintingpolicy.jpg)
 
-Submitted was the previous utxo from User1 that contained the 10 LT tokens.  Also included is another utxo from User1 to provide enough Ada to mint the NFT.  Here is the cli script used
+Submitted was the previous utxo from User 1 that contained the 10 LT tokens.  Also included is another utxo from User 1 to provide enough Ada to mint the NFT.  Here is the cli script used
 
  ![image showing diagram](/img//step4/cli.jpg)
 
-The final result is the NFT is in User1's wallet
+The final result is the NFT is in User 1's wallet
 
  ![image showing diagram](/img//step4/result.jpg)
 
